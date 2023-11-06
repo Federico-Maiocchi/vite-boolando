@@ -31,7 +31,7 @@ export default {
                 discount: '-30%',
                 sustainability: '',
                 brandName: 'Come zucchero filato',
-                model: 'Voglio di colori pastello',
+                model: 'Voglia di colori pastello',
                 price: 129.99,
                 oldPrice: 184.99,
             },
@@ -39,7 +39,7 @@ export default {
                 img: '/img/4.webp',
                 imgBack: '/img/4b.webp',
                 discount: '-50%',
-                sustainability: 'sostenibilità',
+                sustainability: 'Sostenibilità',
                 brandName: 'levi\'s',
                 model: 'Teen unisex',
                 price: 14.99 ,
@@ -88,8 +88,10 @@ export default {
                             <img :src="item.img" alt="t-shirt">
                             <img class="back-img" :src="item.imgBack" alt="back">
                             <span class="heart-sign">&hearts;</span>
-                            <span class="discount">{{ item.discount }}</span>
-                            <span class="sustainability">{{ item.sustainability }}</span>
+                            <div class="notifications">
+                                <span class="discount">{{ item.discount }}</span>
+                                <span class="sustainability">{{ item.sustainability }}</span>
+                            </div>
                         </figure>
                         <div>
                             <p class="brand-name">{{ item.brandName }}</p>
@@ -139,19 +141,27 @@ export default {
             font-size: 25px;
             
             &:hover {
-                color: red;
+                color: $color-red;
             }
         
         }
 
+        .notifications {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2px;
+            position: absolute;
+            bottom: 20px;
+            left: 5px;
+        }
 
         .discount {
-            background-color: red;
+            background-color: $color-red;
             color: white;
-            padding: 0px 3px;
-            font-size: 14px;
-            line-height: 1rem;
-            position: absolute;
+            // padding: 0px 3px;
+            font-size: 16px;
+            line-height: 30px;
+            // position: absolute;
             bottom: 20px;
             left: 5px;
         }
@@ -159,10 +169,10 @@ export default {
         .sustainability {
             background-color: green;
             color: white;
-            padding: 0px 3px;
-            font-size: 14px;
-            line-height: 1rem;
-            position: absolute;
+            // padding: 0px 3px;
+            font-size: 16px;
+            line-height: 30px;
+            // position: absolute;
             bottom: 20px;
             left: 40px;
         }
@@ -172,23 +182,23 @@ export default {
 }
 
 .brand-name {
-    font-size: 12px;
+    font-size: 14px;
     text-transform: capitalize;
 }
 
 .model {
-    font-weight: 700;
-    font-size: 15px;
+    font-weight: 900;
+    font-size: 18px;
     text-transform: uppercase;
 }
 
 .price ,
 .old-price {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
 }
 .price {
-    color: red;
+    color: $color-red;
 }
 
 .old-price {

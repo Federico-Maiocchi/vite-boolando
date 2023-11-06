@@ -3,7 +3,13 @@
 export default {
   data() {
     return {
-        information: ['Informazioni legali', 'Informativa sulla privacy', 'Diritto di recesso']
+        information: ['Informazioni legali', 'Informativa sulla privacy', 'Diritto di recesso'],
+        social: [
+            '/img/facebook-white.svg',
+            '/img/instagram-white.svg',
+            '/img/twitter-white.svg',
+            '/img/youtube-white.svg'
+        ]
     }
   },
 
@@ -24,19 +30,16 @@ export default {
                     <h4>Boolean s.r.l</h4>
                     <ul class="row">
                         <li v-for="(item,index) in information">
-                            <a href="#">Informazioni legali</a>
+                            <p><a href="#">Informazioni legali</a></p>
                         </li>
-                        <!-- <li><a href="#">Informativa sulla privacy</a></li>
-                        <li><a href="#">Diritto di recesso</a></li> -->
                     </ul>
                 </div>
                 <div class="col-2">
                     <h4>Trovaci su</h4>
                     <ul class="row">
-                        <li><a href="#"><img src="./img/facebook-white.svg" alt="fb"></a></li>
-                        <li><a href="#"><img src="./img/instagram-white.svg" alt="inst"></a></li>
-                        <li><a href="#"><img src="./img/twitter-white.svg" alt="tw"></a></li>
-                        <li><a href="#"><img src="./img/youtube-white.svg" alt="yt"></a></li>
+                        <li v-for="(item,index) in social">
+                            <a href="#"><img :src="item" alt="fb"></a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -50,7 +53,7 @@ export default {
 .footer-page {
     background-color: $footer-color;
     color: $text-white;
-    padding: 10px 0px;
+    padding: 12px 0px;
 
     h4 {
         font-size: 20px;
@@ -60,10 +63,19 @@ export default {
 
         .col-6 {
             width: calc((100% / 12) * 6);
+
+            p {
+                padding-top: 5px;
+            }
         }
 
         .col-2 {
             width: calc((100% / 12) * 2);
+
+            img {
+                padding-top: 3px;
+                width: 18px;
+            }
         }
     }
 }
