@@ -28,5 +28,6 @@ export default {
 </template>
 
 <style lang="scss">
-
+@use './style/reset.scss';
+@use './style/general.scss';
 </style>
