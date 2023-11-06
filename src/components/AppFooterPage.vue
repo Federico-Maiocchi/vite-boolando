@@ -56,8 +56,6 @@ export default {
         font-size: 20px;
     }
     .row {
-        display: flex;
-        flex-wrap: wrap;
         justify-content: space-between;
 
         .col-6 {
@@ -70,10 +68,5 @@ export default {
     }
 }
 
-
-
-// img {
-//     color: black;
-// }
 
 </style>

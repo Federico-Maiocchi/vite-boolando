@@ -60,8 +60,6 @@ export default {
     z-index: 100;
     
     .row {
-        display: flex;
-        flex-wrap: wrap;
         justify-content: space-between;
         align-items: center;
     }

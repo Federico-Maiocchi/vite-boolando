@@ -3,14 +3,69 @@
 export default {
   data() {
     return {
-        // cardDress: [
-        //     '/img/1.webp',
-        //     '/img/2.webp',
-        //     '/img/3.webp',
-        //     '/img/4.webp',
-        //     '/img/5.webp',
-        //     '/img/5.webp'
-        // ]
+        cardsDress: [
+            {
+                img: '/img/1.webp',
+                imgBack: '/img/1b.webp',
+                discount: '-50%',
+                sustainability: 'Sostenibilità',
+                brandName: 'levi\'s',
+                model: 'Relaxed fit tee unisex',
+                price: 14.99,
+                oldPrice: 29.99,
+
+            },
+            {
+                img: '/img/2.webp',
+                imgBack: '/img/2b.webp',
+                discount: '-30%',
+                sustainability: '',
+                brandName: 'Guess',
+                model: 'Roses tee',
+                price: 20.99,
+                oldPrice: 29.99,
+            },
+            {
+                img: '/img/3.webp',
+                imgBack: '/img/3b.webp',
+                discount: '-30%',
+                sustainability: '',
+                brandName: 'Come zucchero filato',
+                model: 'Voglio di colori pastello',
+                price: 129.99,
+                oldPrice: 184.99,
+            },
+            {
+                img: '/img/4.webp',
+                imgBack: '/img/4b.webp',
+                discount: '-50%',
+                sustainability: 'sostenibilità',
+                brandName: 'levi\'s',
+                model: 'Teen unisex',
+                price: 14.99 ,
+                oldPrice: 29.99,
+            },
+            {
+                img: '/img/5.webp',
+                imgBack: '/img/5b.webp',
+                discount: '',
+                sustainability: '',
+                brandName: 'Maya deluxe',
+                model: 'Stripe bodice',
+                price: 99.99,
+                oldPrice: '',
+            },
+            {
+                img: '/img/6.webp',
+                imgBack: '/img/6b.webp',
+                discount: '',
+                sustainability: 'Sostenibilità',
+                brandName: 'Esprit',
+                model: 'Maglione - black ',
+                price: 29.99,
+                oldPrice: '',
+            }
+        ]
     }
   },
 
@@ -27,24 +82,23 @@ export default {
     <main class="main-page">
         <div class="container">
             <div class="row">
-                <div v-for="n in 6 " class="col-4">
+                <div v-for="(item,index) in cardsDress" class="col-4">
                     <div class="card">
                         <figure class="card-image">
-                            <img src="/img/1.webp" alt="t-shirt">
-                            <img class="back-img" src="/img/1b.webp" alt="back">
+                            <img :src="item.img" alt="t-shirt">
+                            <img class="back-img" :src="item.imgBack" alt="back">
                             <span class="heart-sign">&hearts;</span>
-                            <span class="discount">-50%</span>
-                            <span class="sustainability">sostenibilità</span>
+                            <span class="discount">{{ item.discount }}</span>
+                            <span class="sustainability">{{ item.sustainability }}</span>
                         </figure>
                         <div>
-                            <p class="brand-name">Levis</p>
-                            <h3 class="model">RELAXED FIT TEE UNISEX</h3>
-                            <span class="price">14,99 &euro;</span>
-                            <span class="old-price">29,99 &euro;</span> 
+                            <p class="brand-name">{{ item.brandName }}</p>
+                            <h3 class="model">{{ item.model }}</h3>
+                            <span class="price">{{ item.price }} &euro;</span>
+                            <span class="old-price">{{ item.oldPrice }} &euro;</span> 
                         </div>
                     </div>
                 </div>
-               
             </div>
         </div>
     </main>
@@ -62,10 +116,6 @@ export default {
     }
 
     .row {
-        display: flex;
-        flex-wrap: wrap;
-        
-
         .col-4 {
             width: calc((100% / 12) * 4);
             padding: 15px;
@@ -88,7 +138,7 @@ export default {
             right: 10px;
             font-size: 25px;
             
-            .heart-sign:hover {
+            &:hover {
                 color: red;
             }
         
@@ -98,8 +148,9 @@ export default {
         .discount {
             background-color: red;
             color: white;
-            padding: 3px;
-            font-size: 12px;
+            padding: 0px 3px;
+            font-size: 14px;
+            line-height: 1rem;
             position: absolute;
             bottom: 20px;
             left: 5px;
@@ -108,53 +159,52 @@ export default {
         .sustainability {
             background-color: green;
             color: white;
-            padding: 3px;
-            font-size: 12px;
+            padding: 0px 3px;
+            font-size: 14px;
+            line-height: 1rem;
             position: absolute;
             bottom: 20px;
             left: 40px;
         }
-
-        .brand-name {
-            font-size: 12px;
-        }
-
-        .model {
-            font-weight: 700;
-            font-size: 15px;
-        }
-
-        .price ,
-        .old-price {
-            font-size: 12px;
-            font-weight: bold;
-        }
-        .price {
-            color: red;
-        }
-
-        .old-price {
-            text-decoration:line-through ;
-        }
-
-        .back-img {
-            position: absolute;
-            left: 0;
-            top: 0;
-            z-index: -1;
-        }
-
-        .card:hover .back-img {
-            z-index: 1;
-        }
-
     
     }
 
-    
+}
 
+.brand-name {
+    font-size: 12px;
+    text-transform: capitalize;
+}
+
+.model {
+    font-weight: 700;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+.price ,
+.old-price {
+    font-size: 14px;
+    font-weight: bold;
+}
+.price {
+    color: red;
+}
+
+.old-price {
+    text-decoration:line-through ;
+    margin-left: 5px;
+}
+
+.back-img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+}
+
+.card:hover .back-img {
+    z-index: 1;
 }
 
 </style>
-
- 
