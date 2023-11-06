@@ -3,8 +3,8 @@
 export default {
   data() {
     return {
-        // gender: [uomo, donna, bambino],
-        // menu: [profilo, preferiti, carrello],
+        gender: ['uomo', 'donna', 'bambino'],
+        menu: ['profilo', 'preferiti', 'carrello'],
     }
   },
 
@@ -24,9 +24,9 @@ export default {
             <div class="row">
                 <div class="menu gender-section">
                     <ul class="row gap-2">
-                        <li ><a class="gender" href="#">Uomo</a></li>
-                        <li ><a class="gender" href="#">Donna</a></li>
-                        <li ><a class="gender" href="#">Bambino</a></li>
+                        <li v-for="(item,index) in gender">
+                            <a class="gender" href="#">{{item}}</a>
+                        </li>
                     </ul>
                 </div>
                 <div class="col-8">
@@ -36,9 +36,9 @@ export default {
                 </div>
                 <div class="menu profile-section">
                     <ul class="row gap-2">
-                        <li ><a class="icons" href="#">profilo</a></li>
-                        <li ><a class="icons" href="#">preferiti</a></li>
-                        <li ><a class="icons" href="#">carrello</a></li>
+                        <li v-for="(item,index) in menu" >
+                            <a class="icons" href="#">{{item}}</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -52,11 +52,11 @@ export default {
 
 .header-page {
     background-color: $header-color;
-    color: $header-text-color;
+    color: $text-white;
     padding: 15px;
     width: 100%;  
-    position: fixed; 
-    z-index: 100;
+    // position: fixed; 
+    // z-index: 100;
     
     .row {
         display: flex;
@@ -76,11 +76,6 @@ export default {
         width: 150px;
     }
 }
-
-
-
-
-
 
 
 </style>
