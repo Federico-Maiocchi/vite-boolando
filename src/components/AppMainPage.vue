@@ -3,7 +3,14 @@
 export default {
   data() {
     return {
-
+        // cardDress: [
+        //     '/img/1.webp',
+        //     '/img/2.webp',
+        //     '/img/3.webp',
+        //     '/img/4.webp',
+        //     '/img/5.webp',
+        //     '/img/5.webp'
+        // ]
     }
   },
 
@@ -17,14 +24,14 @@ export default {
 </script>
 
 <template>
-  <div class="container">
+    <main class="main-page">
+        <div class="container">
             <div class="row">
-                <div class="col-4">
-                    <!--card 1-->
+                <div v-for="n in 6 " class="col-4">
                     <div class="card">
                         <figure class="card-image">
-                            <img src="img/1.webp" alt="t-shirt">
-                            <img class="back-img" src="./img/1b.webp" alt="back">
+                            <img src="/img/1.webp" alt="t-shirt">
+                            <img class="back-img" src="/img/1b.webp" alt="back">
                             <span class="heart-sign">&hearts;</span>
                             <span class="discount">-50%</span>
                             <span class="sustainability">sostenibilità</span>
@@ -37,100 +44,117 @@ export default {
                         </div>
                     </div>
                 </div>
-                <!--card 2-->
-                <div class="col-4">
-                    <div class="card">
-                        <figure class="card-image">
-                            <img src="./img/2.webp" alt="t-shirt">
-                            <img class="back-img" src="./img/2b.webp" alt="back">
-                            <span class="heart-sign">&hearts;</span>
-                            <span class="discount">-30%</span>
-                            <!--<span class="sustainability">sostenibilità</span>-->
-                        </figure>
-                        <div>
-                            <p class="brand-name">Guess</p>
-                            <h3 class="model">ROSES TEE</h3>
-                            <span class="price">20,99 &euro;</span>
-                            <span class="old-price">29,99 &euro;</span> 
-                        </div>
-                    </div>
-                </div>
-                <!--card 3-->
-                <div class="col-4">
-                    <div class="card">
-                        <figure class="card-image">
-                            <img src="./img/3.webp" alt="t-shirt">
-                            <img class="back-img" src="./img/3b.webp" alt="back">
-                            <span class="heart-sign">&hearts;</span>
-                            <span class="discount">-30%</span>
-                            <!--<span class="sustainability">sostenibilità</span>-->
-                        </figure>
-                        <div>
-                            <p class="brand-name">Come Zucchero Filato</p>
-                            <h3 class="model">VOGLIA DI COLORI PASTELLO</h3>
-                            <span class="price">129,99 &euro;</span>
-                            <span class="old-price">184,99 &euro;</span> 
-                        </div>
-                    </div>
-                </div>
-                <!--card 4-->
-                <div class="col-4">
-                    <div class="card">
-                        <figure class="card-image">
-                            <img src="./img/4.webp" alt="t-shirt">
-                            <img class="back-img" src="./img/4b.webp" alt="back">
-                            <span class="heart-sign">&hearts;</span>
-                            <span class="discount">-50%</span>
-                            <span class="sustainability">sostenibilità</span>
-                        </figure>
-                        <div>
-                            <p class="brand-name">Levis</p>
-                            <h3 class="model">TEEN UNISEX</h3>
-                            <span class="price">14,99 &euro;</span>
-                            <span class="old-price">29,99 &euro;</span> 
-                        </div>
-                    </div>
-                </div>
-                <!--card 5-->
-                <div class="col-4">
-                    <div class="card">
-                        <figure class="card-image">
-                            <img src="./img/5.webp" alt="t-shirt">
-                            <img class="back-img" src="./img/5b.webp" alt="back">
-                            <span class="heart-sign">&hearts;</span>
-                            <!--<span class="discount">-50%</span>
-                            <span class="sustainability">sostenibilità</span>-->
-                        </figure>
-                        <div>
-                            <p class="brand-name">Maya Deluxe</p>
-                            <h3 class="model">STRIPE BODICE</h3>
-                            <span class="price">99,99 &euro;</span>
-                            <span class="old-price"></span> 
-                        </div>
-                    </div>
-                </div>
-                <!--card 6-->
-                <div class="col-4">
-                    <div class="card">
-                        <figure class="card-image">
-                            <img src="./img/6.webp" alt="t-shirt">
-                            <img class="back-img" src="./img/6b.webp" alt="back">
-                            <span class="heart-sign">&hearts;</span>
-                            <!--<span class="discount">-50%</span>-->
-                            <span class="sustainability">sostenibilità</span>
-                        </figure>
-                        <div>
-                            <p class="brand-name">Esprit</p>
-                            <h3 class="model">MAGLIONE - BLACK</h3>
-                            <span class="price">29,99 &euro;</span>
-                            <span class="old-price"></span> 
-                        </div>
-                    </div>
-                </div>
+               
             </div>
         </div>
+    </main>
+  
 </template>
 
 <style lang="scss" scoped>
+@use '../style/partials/variables' as *;
+
+.main-page {
+
+    
+    & .row {
+        padding-top: 100px;
+    }
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        
+
+        .col-4 {
+            width: calc((100% / 12) * 4);
+            padding: 15px;
+        }
+    }
+
+    .card-image {
+        position: relative;
+
+        .heart-sign,
+        .discount,
+        .sustainability {
+            z-index: 2;
+        }
+        .heart-sign {
+            background-color: white;
+            padding: 4px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 25px;
+            
+            .heart-sign:hover {
+                color: red;
+            }
+        
+        }
+
+
+        .discount {
+            background-color: red;
+            color: white;
+            padding: 3px;
+            font-size: 12px;
+            position: absolute;
+            bottom: 20px;
+            left: 5px;
+        }
+
+        .sustainability {
+            background-color: green;
+            color: white;
+            padding: 3px;
+            font-size: 12px;
+            position: absolute;
+            bottom: 20px;
+            left: 40px;
+        }
+
+        .brand-name {
+            font-size: 12px;
+        }
+
+        .model {
+            font-weight: 700;
+            font-size: 15px;
+        }
+
+        .price ,
+        .old-price {
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .price {
+            color: red;
+        }
+
+        .old-price {
+            text-decoration:line-through ;
+        }
+
+        .back-img {
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: -1;
+        }
+
+        .card:hover .back-img {
+            z-index: 1;
+        }
+
+    
+    }
+
+    
+
+}
 
 </style>
+
+ 

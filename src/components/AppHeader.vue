@@ -54,9 +54,10 @@ export default {
     background-color: $header-color;
     color: $text-white;
     padding: 15px;
-    width: 100%;  
-    // position: fixed; 
-    // z-index: 100;
+    width: 100%;
+     
+    position: fixed; 
+    z-index: 100;
     
     .row {
         display: flex;

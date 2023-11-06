@@ -2,6 +2,7 @@
 
 import AppHeader from './components/AppHeader.vue';
 import AppFooter from './components/AppFooterPage.vue';
+import AppMainPage from './components/AppMainPage.vue';
 
 export default {
 
@@ -13,7 +14,8 @@ export default {
 
   components: {
     AppHeader,
-    AppFooter
+    AppFooter,
+    AppMainPage
 },
 
   methods: {
@@ -26,11 +28,17 @@ export default {
 </script>
 
 <template>
-  <AppHeader/>
-  <AppFooter/>
+  <div >
+    <AppHeader/>
+    <AppMainPage/>
+    <AppFooter/>
+  </div>
+  
 </template>
 
 <style lang="scss">
 @use './style/reset.scss';
 @use './style/general.scss';
+
+
 </style>
