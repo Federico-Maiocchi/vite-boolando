@@ -1,9 +1,8 @@
 <script >
-// import HelloWorld from './components/HelloWorld.vue'
-export default {
-  components:{
 
-  },
+import AppHeader from './components/AppHeader.vue';
+
+export default {
 
   data() {
     return {
@@ -11,8 +10,12 @@ export default {
     }
   },
 
+  components: {
+    AppHeader
+  },
+
   methods: {
-    
+
   }
 
 
@@ -21,7 +24,7 @@ export default {
 </script>
 
 <template>
-  
+  <AppHeader/>
 </template>
 
 <style lang="scss">

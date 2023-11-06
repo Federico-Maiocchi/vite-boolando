@@ -3,8 +3,8 @@
 export default {
   data() {
     return {
-        gender: [uomo, donna, bambino],
-        menu: [profilo, preferiti, carrello],
+    //     gender: [uomo, donna, bambino],
+    //     menu: [profilo, preferiti, carrello],
     }
   },
 
@@ -18,7 +18,9 @@ export default {
 </script>
 
 <template>
-   <nav class="container">
+   <header class="header-page">
+        <!--gender / logo / icons-->
+        <nav class="container">
             <div class="row">
                 <div class="col-2">
                     <ul class="row justify-around">
@@ -41,6 +43,8 @@ export default {
                 </div>
             </div>
         </nav>
+
+    </header>
 </template>
 
 <style lang="scss" scoped>
