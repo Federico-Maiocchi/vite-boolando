@@ -1,83 +1,94 @@
 <script >
-// import cardsJson from './db.jsonS'
+import AppCards from './AppCards.vue'
+import cardsJson from '../db.json'
+
 
 export default {
-  data() {
+    components: {
+        AppCards
+    },
+
+    data() {
     return {
 
-        // cards: cardsJson,
-        cardsDress: [
-            {
-                img: '/img/1.webp',
-                imgBack: '/img/1b.webp',
-                discount: '-50%',
-                sustainability: 'Sostenibilità',
-                brandName: 'levi\'s',
-                model: 'Relaxed fit tee unisex',
-                price: 14.99,
-                oldPrice: 29.99,
+        cards: cardsJson.products
 
-            },
-            {
-                img: '/img/2.webp',
-                imgBack: '/img/2b.webp',
-                discount: '-30%',
-                sustainability: '',
-                brandName: 'Guess',
-                model: 'Roses tee',
-                price: 20.99,
-                oldPrice: 29.99,
-            },
-            {
-                img: '/img/3.webp',
-                imgBack: '/img/3b.webp',
-                discount: '-30%',
-                sustainability: '',
-                brandName: 'Come zucchero filato',
-                model: 'Voglia di colori pastello',
-                price: 129.99,
-                oldPrice: 184.99,
-            },
-            {
-                img: '/img/4.webp',
-                imgBack: '/img/4b.webp',
-                discount: '-50%',
-                sustainability: 'Sostenibilità',
-                brandName: 'levi\'s',
-                model: 'Teen unisex',
-                price: 14.99 ,
-                oldPrice: 29.99,
-            },
-            {
-                img: '/img/5.webp',
-                imgBack: '/img/5b.webp',
-                discount: '',
-                sustainability: '',
-                brandName: 'Maya deluxe',
-                model: 'Stripe bodice',
-                price: 99.99,
-                oldPrice: '',
-            },
-            {
-                img: '/img/6.webp',
-                imgBack: '/img/6b.webp',
-                discount: '',
-                sustainability: 'Sostenibilità',
-                brandName: 'Esprit',
-                model: 'Maglione - black ',
-                price: 29.99,
-                oldPrice: '',
-            }
-        ]
+        // cardsDress: [
+        //     {
+        //         img: '/img/1.webp',
+        //         imgBack: '/img/1b.webp',
+        //         discount: '-50%',
+        //         sustainability: 'Sostenibilità',
+        //         brandName: 'levi\'s',
+        //         model: 'Relaxed fit tee unisex',
+        //         price: 14.99,
+        //         oldPrice: 29.99,
+
+        //     },
+        //     {
+        //         img: '/img/2.webp',
+        //         imgBack: '/img/2b.webp',
+        //         discount: '-30%',
+        //         sustainability: '',
+        //         brandName: 'Guess',
+        //         model: 'Roses tee',
+        //         price: 20.99,
+        //         oldPrice: 29.99,
+        //     },
+        //     {
+        //         img: '/img/3.webp',
+        //         imgBack: '/img/3b.webp',
+        //         discount: '-30%',
+        //         sustainability: '',
+        //         brandName: 'Come zucchero filato',
+        //         model: 'Voglia di colori pastello',
+        //         price: 129.99,
+        //         oldPrice: 184.99,
+        //     },
+        //     {
+        //         img: '/img/4.webp',
+        //         imgBack: '/img/4b.webp',
+        //         discount: '-50%',
+        //         sustainability: 'Sostenibilità',
+        //         brandName: 'levi\'s',
+        //         model: 'Teen unisex',
+        //         price: 14.99 ,
+        //         oldPrice: 29.99,
+        //     },
+        //     {
+        //         img: '/img/5.webp',
+        //         imgBack: '/img/5b.webp',
+        //         discount: '',
+        //         sustainability: '',
+        //         brandName: 'Maya deluxe',
+        //         model: 'Stripe bodice',
+        //         price: 99.99,
+        //         oldPrice: '',
+        //     },
+        //     {
+        //         img: '/img/6.webp',
+        //         imgBack: '/img/6b.webp',
+        //         discount: '',
+        //         sustainability: 'Sostenibilità',
+        //         brandName: 'Esprit',
+        //         model: 'Maglione - black ',
+        //         price: 29.99,
+        //         oldPrice: '',
+        //     }
+        // ]
     }
-  },
+    },
 
-  methods: {
-    
-  }
+    methods: {
+
+    },
+
+    mounted() {
+    // console.log(this.cards)
+    }
 
 
-}
+    }
 
 </script>
 
@@ -85,32 +96,16 @@ export default {
     <main class="main-page">
         <div class="container">
             <div class="row">
-                <div v-for="(item,index) in cardsDress" class="col-4">
-                    <div class="card">
-                        <figure class="card-image">
-                            <img :src="item.img" alt="t-shirt">
-                            <img class="back-img" :src="item.imgBack" alt="back">
-                            <span class="heart-sign">&hearts;</span>
-                            <div class="notifications">
-                                <span class="discount">{{ item.discount }}</span>
-                                <span class="sustainability">{{ item.sustainability }}</span>
-                            </div>
-                        </figure>
-                        <div>
-                            <p class="brand-name">{{ item.brandName }}</p>
-                            <h3 class="model">{{ item.model }}</h3>
-                            <span class="price">{{ item.price }} &euro;</span>
-                            <span class="old-price">{{ item.oldPrice }} &euro;</span> 
-                        </div>
-                    </div>
-                </div>
+                <AppCards 
+                    v-for="product in cards" 
+                    :item='product'/>
             </div>
         </div>
     </main>
   
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss" >
 @use '../style/partials/variables' as *;
 
 .main-page {
@@ -220,3 +215,5 @@ export default {
 }
 
 </style>
+
+<!-- v-for="product in cards" :item='product' -->

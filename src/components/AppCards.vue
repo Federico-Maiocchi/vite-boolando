@@ -8,7 +8,10 @@ export default {
   },
 
   props: {
-
+    item: {
+        type: Object,
+        required: true,
+    }
   },
 
   methods: {
@@ -21,22 +24,21 @@ export default {
 </script>
 
 <template>
-    <div v-for="(item,index) in cardsDress" class="col-4">
+    <div class="col-4">
         <div class="card">
             <figure class="card-image">
-                <img :src="item.img" alt="t-shirt">
-                <img class="back-img" :src="item.imgBack" alt="back">
+                <img src="/img/1.webp" alt="t-shirt">
+                <img class="back-img" src="/img/1b.webp" alt="back">
                 <span class="heart-sign">&hearts;</span>
                 <div class="notifications">
-                    <span class="discount">{{ item.discount }}</span>
-                    <span class="sustainability">{{ item.sustainability }}</span>
+                    <span class="discount">-50%</span>
+                    <span class="sustainability">yes</span>
                 </div>
             </figure>
             <div>
-                <p class="brand-name">{{ item.brandName }}</p>
-                <h3 class="model">{{ item.model }}</h3>
-                <span class="price">{{ item.price }} &euro;</span>
-                <span class="old-price">{{ item.oldPrice }} &euro;</span> 
+                <p class="brand-name">{{ item.brand}}</p>
+                <h3 class="model">{{ item.name }}</h3>
+                <span class="price">{{item.price}}&euro;</span> 
             </div>
         </div>
     </div>

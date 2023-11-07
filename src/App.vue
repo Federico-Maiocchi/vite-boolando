@@ -41,5 +41,8 @@ export default {
 @use './style/reset.scss';
 @use './style/general.scss';
 
+.red-bg {
+  background-color: red;
+}
 
 </style>
