@@ -125,95 +125,9 @@ export default {
         }
     }
 
-    .card-image {
-        position: relative;
-
-        .heart-sign,
-        .discount,
-        .sustainability {
-            z-index: 2;
-        }
-        .heart-sign {
-            background-color: white;
-            padding: 4px;
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 25px;
-            
-            &:hover {
-                color: $color-red;
-            }
-        
-        }
-
-        .notifications {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2px;
-            position: absolute;
-            bottom: 20px;
-            left: 5px;
-        }
-
-        .discount {
-            background-color: $color-red;
-            color: white;
-            font-size: 16px;
-            line-height: 30px;
-            bottom: 20px;
-            left: 5px;
-        }
-
-        .sustainability {
-            background-color: green;
-            color: white;
-            font-size: 16px;
-            line-height: 30px;
-            bottom: 20px;
-            left: 40px;
-        }
-    
-    }
 
 }
 
-.brand-name {
-    font-size: 14px;
-    text-transform: capitalize;
-}
 
-.model {
-    font-weight: 900;
-    font-size: 16px;
-    text-transform: uppercase;
-}
-
-.price ,
-.old-price {
-    font-size: 16px;
-    font-weight: bold;
-}
-.price {
-    color: $color-red;
-}
-
-.old-price {
-    text-decoration:line-through ;
-    margin-left: 5px;
-}
-
-.back-img {
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: -1;
-}
-
-.card:hover .back-img {
-    z-index: 1;
-}
 
 </style>
-
-<!-- v-for="product in cards" :item='product' -->

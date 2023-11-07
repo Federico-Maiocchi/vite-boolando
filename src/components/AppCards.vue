@@ -27,13 +27,20 @@ export default {
     <div class="col-4">
         <div class="card">
             <figure class="card-image">
-                <img src="/img/1.webp" alt="t-shirt">
-                <img class="back-img" src="/img/1b.webp" alt="back">
-                <span class="heart-sign">&hearts;</span>
+                <img :src="/img/ + item.frontImage" alt="t-shirt">
+                <img class="back-img" :src="/img/ + item.backImage" alt="back">
+                <span class="heart-sign"
+                    
+                    >&hearts;</span>
                 <div class="notifications">
-                    <span class="discount">-50%</span>
-                    <span class="sustainability">yes</span>
+                    <span v-for="elements in item.badges" 
+                        class="discount"
+                        :class="elements.type === 'discount' ? 'price' : 'sustainability'">
+                    {{ elements.value }}
+                    </span>
+                    
                 </div>
+                
             </figure>
             <div>
                 <p class="brand-name">{{ item.brand}}</p>
@@ -96,6 +103,7 @@ export default {
         line-height: 30px;
         bottom: 20px;
         left: 40px;
+        order: 1;
     }
 
 }
