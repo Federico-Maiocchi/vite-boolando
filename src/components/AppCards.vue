@@ -37,10 +37,8 @@ export default {
                         class="discount"
                         :class="elements.type === 'discount' ? 'price' : 'sustainability'">
                     {{ elements.value }}
-                    </span>
-                    
-                </div>
-                
+                    </span> 
+                </div> 
             </figure>
             <div>
                 <p class="brand-name">{{ item.brand}}</p>
@@ -54,8 +52,9 @@ export default {
 <style lang="scss" scoped>
 @use '../style/partials/variables' as *;
 
-.text-marron {
-    color: brown;
+
+.text-red {
+        color: red;
 }
 
 .text-black {
@@ -152,8 +151,6 @@ export default {
     z-index: 1;
 }
 
-.text-red {
-        color: red;
-}
+
 
 </style>

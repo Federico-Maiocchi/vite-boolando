@@ -1,11 +1,13 @@
 <script >
 import AppMenuFooter from './AppMenuFooter.vue';
+import LeftMenuFooter from './LeftMenuFooter.vue';
 
 export default {
 
     components:{
-    AppMenuFooter
-},
+    AppMenuFooter,
+    LeftMenuFooter
+    },
 
     data() {
     return {
@@ -23,7 +25,7 @@ export default {
                 {
                     text: 'Diritto di recesso',
                     href: '#'
-                }
+                },
             ]
         },
 
@@ -54,6 +56,10 @@ export default {
 
     methods: {
 
+    },
+
+    mounted() {
+        // console.log(this.menuInfo)
     }
 
 
@@ -69,7 +75,7 @@ export default {
                     <AppMenuFooter  :title="menuInfo.titleInfo" :links="menuInfo.links"/>
                 </div>
                 <div class="col-2">
-                    <AppMenuFooter  :title="menuSocial.titleSocial" :links="menuSocial.links"/>
+                    <LeftMenuFooter  :title="menuSocial.titleSocial" :links="menuSocial.links"/> 
                 </div>
             </div>
         </div>
