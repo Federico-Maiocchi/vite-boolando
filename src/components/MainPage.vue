@@ -1,11 +1,11 @@
 <script >
-import AppCards from './AppCards.vue'
+import Cards from './Cards.vue'
 import cardsJson from '../db.json'
 
 
 export default {
     components: {
-        AppCards
+        Cards
     },
 
     data() {
@@ -96,7 +96,7 @@ export default {
     <main class="main-page">
         <div class="container">
             <div class="row">
-                <AppCards 
+                <Cards 
                     v-for="product in cards" 
                     :item='product'/>
             </div>

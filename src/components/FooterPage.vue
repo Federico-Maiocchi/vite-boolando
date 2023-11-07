@@ -1,14 +1,15 @@
 <script >
-import AppMenuFooter from './AppMenuFooter.vue';
+import RightMenuFooter from './RightMenuFooter.vue';
 import LeftMenuFooter from './LeftMenuFooter.vue';
 
 
 export default {
 
     components:{
-    AppMenuFooter,
-    
+
+    RightMenuFooter,
     LeftMenuFooter
+    
 },
 
     data() {
@@ -75,7 +76,7 @@ export default {
         <div class="container">
             <div class="row">
                 <div class="col-6">
-                    <AppMenuFooter  :title="menuInfo.titleInfo" :links="menuInfo.links"/>
+                    <RightMenuFooter  :title="menuInfo.titleInfo" :links="menuInfo.links"/>
                 </div>
                 <div class="col-2">
                     <LeftMenuFooter  :title="menuSocial.titleSocial" :links="menuSocial.links"/> 
