@@ -3,18 +3,16 @@
 export default {
 
     props: {
-        props: ['title', 'links']
+        title: String,
+        links: Array,
     }
-        
-
-
 }
 
 </script>
 
 <template>
     <div>
-        <h4>{{title}}</h4>
+        <h4>{{ title }}</h4>
         <ul class="row">
             <li v-for="(link,index) in links" :key="index">
                 <a :href="link.href"><img :src="link.logo" alt=""></a>
@@ -32,9 +30,10 @@ export default {
         
     }
 .row {
-    gap: 10px;
+    justify-content: space-between;
+
     img {
-                padding-top: 3px;
+                padding-top: 5px;
                 width: 18px;
             }
 }

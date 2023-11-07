@@ -25,14 +25,12 @@ export default {
   
     }
 .row {
-    gap: 20px;
+    justify-content: space-between;
     
-    img {
-                padding-top: 3px;
-                width: 18px;
-            }
+    p {
+        padding-top: 5px;
+    }
+    
 }
     
 </style>
-
-<!--  -->

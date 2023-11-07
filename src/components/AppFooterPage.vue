@@ -2,12 +2,14 @@
 import AppMenuFooter from './AppMenuFooter.vue';
 import LeftMenuFooter from './LeftMenuFooter.vue';
 
+
 export default {
 
     components:{
     AppMenuFooter,
+    
     LeftMenuFooter
-    },
+},
 
     data() {
     return {
@@ -47,7 +49,7 @@ export default {
                 {
                     logo: '/img/youtube-white.svg',
                     href: '#'
-                }
+                },
             ]
         } 
 
@@ -60,6 +62,7 @@ export default {
 
     mounted() {
         // console.log(this.menuInfo)
+        console.log(this.menuSocial)
     }
 
 
