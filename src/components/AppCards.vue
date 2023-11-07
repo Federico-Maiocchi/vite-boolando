@@ -30,7 +30,7 @@ export default {
                 <img :src="/img/ + item.frontImage" alt="t-shirt">
                 <img class="back-img" :src="/img/ + item.backImage" alt="back">
                 <span class="heart-sign"
-                    
+                    :class="item.isInFavorites === true ? 'text-red' : '' "
                     >&hearts;</span>
                 <div class="notifications">
                     <span v-for="elements in item.badges" 
@@ -54,7 +54,13 @@ export default {
 <style lang="scss" scoped>
 @use '../style/partials/variables' as *;
 
+.text-marron {
+    color: brown;
+}
 
+.text-black {
+    color: black;
+}
 
 .card-image {
     position: relative;
@@ -71,6 +77,8 @@ export default {
         top: 10px;
         right: 10px;
         font-size: 25px;
+
+        
         
         &:hover {
             color: $color-red;
@@ -142,6 +150,10 @@ export default {
 
 .card:hover .back-img {
     z-index: 1;
+}
+
+.text-red {
+        color: red;
 }
 
 </style>
