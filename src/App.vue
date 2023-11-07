@@ -4,6 +4,7 @@ import AppHeader from './components/AppHeader.vue';
 import AppFooter from './components/AppFooterPage.vue';
 import AppMainPage from './components/AppMainPage.vue';
 
+
 export default {
 
   data() {

@@ -1,8 +1,11 @@
 <script >
+// import cardsJson from './db.jsonS'
 
 export default {
   data() {
     return {
+
+        // cards: cardsJson,
         cardsDress: [
             {
                 img: '/img/1.webp',
@@ -117,6 +120,9 @@ export default {
         padding-top: 100px;
     }
 
+    .container {
+        max-width: 850px;
+    }
     .row {
         .col-4 {
             width: calc((100% / 12) * 4);
@@ -158,10 +164,8 @@ export default {
         .discount {
             background-color: $color-red;
             color: white;
-            // padding: 0px 3px;
             font-size: 16px;
             line-height: 30px;
-            // position: absolute;
             bottom: 20px;
             left: 5px;
         }
@@ -169,10 +173,8 @@ export default {
         .sustainability {
             background-color: green;
             color: white;
-            // padding: 0px 3px;
             font-size: 16px;
             line-height: 30px;
-            // position: absolute;
             bottom: 20px;
             left: 40px;
         }
@@ -188,7 +190,7 @@ export default {
 
 .model {
     font-weight: 900;
-    font-size: 18px;
+    font-size: 16px;
     text-transform: uppercase;
 }
 

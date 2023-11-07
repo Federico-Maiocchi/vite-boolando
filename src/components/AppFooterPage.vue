@@ -1,21 +1,60 @@
 <script >
+import AppMenuFooter from './AppMenuFooter.vue';
 
 export default {
-  data() {
-    return {
-        information: ['Informazioni legali', 'Informativa sulla privacy', 'Diritto di recesso'],
-        social: [
-            '/img/facebook-white.svg',
-            '/img/instagram-white.svg',
-            '/img/twitter-white.svg',
-            '/img/youtube-white.svg'
-        ]
-    }
-  },
 
-  methods: {
-    
-  }
+    components:{
+    AppMenuFooter
+},
+
+    data() {
+    return {
+        menuInfo: {
+            titleInfo: 'Boolean s.r.l',
+            links: [
+                {
+                    text: 'Informazioni legali',
+                    href: '#'
+                },
+                {
+                    text: 'Informativa sulla privacy',
+                    href: '#'
+                },
+                {
+                    text: 'Diritto di recesso',
+                    href: '#'
+                }
+            ]
+        },
+
+        menuSocial: {
+            titleSocial: 'Ci trovi anche su',
+            links: [
+                {
+                    logo: '/img/facebook-white.svg',
+                    href: '#'
+                },
+                {
+                    logo: '/img/instagram-white.svg',
+                    href: '#'
+                },
+                {
+                    logo: '/img/twitter-white.svg',
+                    href: '#'
+                },
+                {
+                    logo: '/img/youtube-white.svg',
+                    href: '#'
+                }
+            ]
+        } 
+
+    }
+    },
+
+    methods: {
+
+    }
 
 
 }
@@ -27,20 +66,10 @@ export default {
         <div class="container">
             <div class="row">
                 <div class="col-6">
-                    <h4>Boolean s.r.l</h4>
-                    <ul class="row">
-                        <li v-for="(item,index) in information">
-                            <p><a href="#">Informazioni legali</a></p>
-                        </li>
-                    </ul>
+                    <AppMenuFooter  :title="menuInfo.titleInfo" :links="menuInfo.links"/>
                 </div>
                 <div class="col-2">
-                    <h4>Trovaci su</h4>
-                    <ul class="row">
-                        <li v-for="(item,index) in social">
-                            <a href="#"><img :src="item" alt="fb"></a>
-                        </li>
-                    </ul>
+                    <AppMenuFooter  :title="menuSocial.titleSocial" :links="menuSocial.links"/>
                 </div>
             </div>
         </div>
@@ -55,9 +84,6 @@ export default {
     color: $text-white;
     padding: 12px 0px;
 
-    h4 {
-        font-size: 20px;
-    }
     .row {
         justify-content: space-between;
 
@@ -72,10 +98,7 @@ export default {
         .col-2 {
             width: calc((100% / 12) * 2);
 
-            img {
-                padding-top: 3px;
-                width: 18px;
-            }
+            
         }
     }
 }

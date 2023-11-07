@@ -3,8 +3,13 @@
 export default {
   data() {
     return {
-        gender: ['uomo', 'donna', 'bambino'],
-        menu: ['profilo', 'preferiti', 'carrello'],
+        gender: ['uomo',
+                 'donna', 
+                 'bambino'],
+
+        menu: ['profilo', 
+                'preferiti', 
+                'carrello'],
     }
   },
 
