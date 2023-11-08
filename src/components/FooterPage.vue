@@ -63,7 +63,7 @@ export default {
 
     mounted() {
         // console.log(this.menuInfo)
-        console.log(this.menuSocial)
+        // console.log(this.menuSocial)
     }
 
 

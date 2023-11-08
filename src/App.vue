@@ -3,13 +3,14 @@
 import HeaderPage from './components/HeaderPage.vue';
 import FooterPage from './components/FooterPage.vue';
 import MainPage from './components/MainPage.vue';
+import { store } from './store';
 
 
 export default {
 
   data() {
     return {
-
+      store: store,
     }
   },
 
@@ -17,10 +18,14 @@ export default {
     HeaderPage,
     FooterPage,
     MainPage
-},
+  },
 
   methods: {
 
+  },
+
+  mounted() {
+    // console.log(this.store)
   }
 
 

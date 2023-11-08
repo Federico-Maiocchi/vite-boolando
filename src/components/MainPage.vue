@@ -1,6 +1,8 @@
 <script >
 import Cards from './Cards.vue'
-import cardsJson from '../db.json'
+// import cardsJson from '../db.json'
+import { store } from '../store.js'
+import axios from 'axios'
 
 
 export default {
@@ -11,72 +13,22 @@ export default {
     data() {
     return {
 
-        cards: cardsJson.products
+        // cards: cardsJson.products,
+        store: store,
+        // products: store.cards
 
-        // cardsDress: [
-        //     {
-        //         img: '/img/1.webp',
-        //         imgBack: '/img/1b.webp',
-        //         discount: '-50%',
-        //         sustainability: 'Sostenibilità',
-        //         brandName: 'levi\'s',
-        //         model: 'Relaxed fit tee unisex',
-        //         price: 14.99,
-        //         oldPrice: 29.99,
-
-        //     },
-        //     {
-        //         img: '/img/2.webp',
-        //         imgBack: '/img/2b.webp',
-        //         discount: '-30%',
-        //         sustainability: '',
-        //         brandName: 'Guess',
-        //         model: 'Roses tee',
-        //         price: 20.99,
-        //         oldPrice: 29.99,
-        //     },
-        //     {
-        //         img: '/img/3.webp',
-        //         imgBack: '/img/3b.webp',
-        //         discount: '-30%',
-        //         sustainability: '',
-        //         brandName: 'Come zucchero filato',
-        //         model: 'Voglia di colori pastello',
-        //         price: 129.99,
-        //         oldPrice: 184.99,
-        //     },
-        //     {
-        //         img: '/img/4.webp',
-        //         imgBack: '/img/4b.webp',
-        //         discount: '-50%',
-        //         sustainability: 'Sostenibilità',
-        //         brandName: 'levi\'s',
-        //         model: 'Teen unisex',
-        //         price: 14.99 ,
-        //         oldPrice: 29.99,
-        //     },
-        //     {
-        //         img: '/img/5.webp',
-        //         imgBack: '/img/5b.webp',
-        //         discount: '',
-        //         sustainability: '',
-        //         brandName: 'Maya deluxe',
-        //         model: 'Stripe bodice',
-        //         price: 99.99,
-        //         oldPrice: '',
-        //     },
-        //     {
-        //         img: '/img/6.webp',
-        //         imgBack: '/img/6b.webp',
-        //         discount: '',
-        //         sustainability: 'Sostenibilità',
-        //         brandName: 'Esprit',
-        //         model: 'Maglione - black ',
-        //         price: 29.99,
-        //         oldPrice: '',
-        //     }
-        // ]
     }
+    },
+
+    created() {
+        axios.get('http://localhost:3000/products')
+        .then(res => {
+
+            const products = res.data;
+            console.log(res,products)
+
+            this.store.products = products
+        })
     },
 
     methods: {
@@ -85,6 +37,7 @@ export default {
 
     mounted() {
     // console.log(this.cards)
+    // console.log(store)
     }
 
 
@@ -97,8 +50,8 @@ export default {
         <div class="container">
             <div class="row">
                 <Cards 
-                    v-for="product in cards" 
-                    :item='product'/>
+                    v-for="product in store.products" 
+                    :item='product' />
             </div>
         </div>
     </main>

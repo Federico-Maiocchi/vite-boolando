@@ -15,7 +15,9 @@ export default {
   },
 
   methods: {
-    
+    activeFavorite() {
+        this.item.isInFavorites = !this.item.isInFavorites
+    }
   }
 
 
@@ -31,6 +33,7 @@ export default {
                 <img class="back-img" :src="/img/ + item.backImage" alt="back">
                 <span class="heart-sign"
                     :class="item.isInFavorites === true ? 'text-red' : '' "
+                    @click="activeFavorite()"
                     >&hearts;</span>
                 <div class="notifications">
                     <span v-for="elements in item.badges" 
@@ -76,6 +79,7 @@ export default {
         top: 10px;
         right: 10px;
         font-size: 25px;
+        cursor: pointer;
 
         
         
@@ -128,7 +132,7 @@ export default {
 
 .price ,
 .old-price {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bold;
 }
 .price {
