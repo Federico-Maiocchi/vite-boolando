@@ -5,11 +5,13 @@ export default {
     return {
         gender: ['uomo',
                  'donna', 
-                 'bambino'],
+                 'bambino'
+                ],
 
-        menu: ['profilo', 
-                'preferiti', 
-                'carrello'],
+        menu: ['fa-solid fa-user', 
+                'fa-solid fa-basket-shopping', 
+                'fa-solid fa-heart'
+            ],
     }
   },
 
@@ -24,7 +26,6 @@ export default {
 
 <template>
    <header class="header-page">
-        <!--gender / logo / icons-->
         <nav class="container">
             <div class="row">
                 <div class="menu gender-section">
@@ -40,15 +41,16 @@ export default {
                     </div>
                 </div>
                 <div class="menu profile-section">
-                    <ul class="row gap-2">
+                    <ul class="row gap-4">
                         <li v-for="(item,index) in menu" >
-                            <a class="icons" href="#">{{item}}</a>
+                            <a class="icons" href="#">
+                                <font-awesome-icon :icon=" item " />
+                            </a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
-
     </header>
 </template>
 
@@ -74,6 +76,10 @@ export default {
     }
     .gap-2 {
         gap: 10px;
+    }
+
+    .gap-4 {
+        gap: 20px;
     }
 
     .logo {

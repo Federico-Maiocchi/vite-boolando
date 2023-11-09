@@ -17,6 +17,10 @@ export default {
   methods: {
     activeFavorite() {
         this.item.isInFavorites = !this.item.isInFavorites
+    },
+
+    onClick() {
+        this.$emit('show')
     }
   }
 
@@ -34,7 +38,7 @@ export default {
                 <span class="heart-sign"
                     :class="item.isInFavorites === true ? 'text-red' : '' "
                     @click="activeFavorite()"
-                    >&hearts;</span>
+                    ><font-awesome-icon icon="fa-solid fa-heart" /></span>
                 <div class="notifications">
                     <span v-for="elements in item.badges" 
                         class="discount"
@@ -45,7 +49,7 @@ export default {
             </figure>
             <div>
                 <p class="brand-name">{{ item.brand}}</p>
-                <h3 class="model">{{ item.name }}</h3>
+                <h3 @click="onClick" class="model">{{ item.name }}</h3>
                 <span class="price">{{item.price}}&euro;</span> 
             </div>
         </div>
@@ -73,8 +77,6 @@ export default {
         z-index: 2;
     }
     .heart-sign {
-        background-color: white;
-        padding: 4px;
         position: absolute;
         top: 10px;
         right: 10px;
